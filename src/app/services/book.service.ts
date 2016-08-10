@@ -47,17 +47,17 @@ export class BooksService {
     return this.http.get(`/books/${bookId}`).map(res => res.json())
       .flatMap((book) => {
         return Observable.forkJoin(
-          Observable.of(book),
-          this.getBookAuthors(book.id),
-          this.getBookPublisher(book.id)
+          Observable.of(book)
+          // commented until data consistency fix
+          //  this.getBookAuthors(book.id),
+          //  this.getBookPublisher(book.id)
         );
       }).map((bookDetails) => {
         let book = bookDetails[0];
-        let authors = bookDetails[1];
-        let publisher = bookDetails[2];
 
-        book.authors = authors;
-        book.publisher = publisher;
+        // commented until data consistency fix
+        //book.authorsDetail = bookDetails[1];
+        //book.publisherDetail = bookDetails[2];
 
         console.log(book);
 

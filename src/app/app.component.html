@@ -1,18 +1,21 @@
 <div>
   <h1>Books</h1>
-  <div (click)="getBooks()">Get books</div>
+  <button class="btn btn-primary" (click)="getBooks()">Get books</button>
   <div>
     <ul>
       <li *ngFor="let book of books">
-        {{book.title}} (<span (click)="getBookDetails(book.id)">get details</span>)
+        {{book.title}} (<button class="btn btn-primary btn-xs" (click)="getBookDetails(book.id)">get details</button>)
       </li>
     </ul>
   </div>
   <div *ngIf="details">
     <hr/>
-    <h3>{{details.title}}</h3>
-    <div *ngFor="let author of details.authors">{{author.firstName}} {{author.lastName}}</div>
-    <div>{{details.publisher.name}}</div>
+    <h3>Title: {{details.title}}</h3>
+    <b>Authors:</b>
+    <ul>
+      <li *ngFor="let author of details.authors">{{author.name}}</li>
+    </ul>
+    <div><b>Publisher:</b> {{details.publisher.name}}</div>
   </div>
   <div *ngIf="error">Global error: {{error.status}} - {{error.statusText}}</div>
   <div *ngIf="validationError">
