@@ -34,7 +34,10 @@ const barrels: string[] = [
   // App specific barrels.
   'app',
   'app/shared',
+<<<<<<< HEAD
   'app/my-c',
+=======
+>>>>>>> 4256d13057841051df00ea6f235d92c19af74d2f
   /** @cli-barrel */
 ];
 
