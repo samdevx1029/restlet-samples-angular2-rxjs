@@ -13,7 +13,7 @@ if (environment.production) {
 bootstrap(AppComponent, [
   ErrorNotifierService,
   HTTP_PROVIDERS,
-  { provide:Http,
+  { provide: Http,
     useFactory: (backend: XHRBackend, defaultOptions: RequestOptions, errorNotifier: ErrorNotifierService) => {
       return new CustomHttp(backend, defaultOptions, errorNotifier);
     },
